@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Furquim - Psicologia de Alta Precisão</title>
+    <!-- Fontes de Luxo Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #e2e8f0;
+            background-color: #0b1924;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Tipografia Serifada de Luxo */
+        h1, h2, h3, .serif {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        /* Header Navegação */
+        header {
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            background: rgba(11, 25, 36, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            max-height: 50px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .logo-title {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #f8fafc;
+            text-transform: uppercase;
+        }
+
+        .logo-title span {
+            color: #d4af37;
+            font-weight: 300;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-left: 30px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 20px 120px 20px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 20%, #153847 0%, #0b1924 70%);
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.08);
+            color: #d4af37;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 300;
+            color: #ffffff;
+            line-height: 1.15;
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: #d99a77;
+            font-weight: 400;
+        }
+
+        .hero-p {
+            font-size: 17px;
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        /* Botão Interativo Dourado */
+        .btn-gold {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #d4af37 0%, #aa8321 100%);
+            color: #0b1924;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Container & Seções */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-desc {
+            font-size: 12px;
+            color: #d4af37;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        /* Pillars Grid */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+        }
+
+        .pillar-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .pillar-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #d4af37;
+            opacity: 0.6;
+            margin-bottom: 15px;
+        }
+
+        .pillar-card h3 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .pillar-card p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        /* Showcase das Irmãs */
+        .sisters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .sister-card {
+            background: linear-gradient(180deg, rgba(27, 82, 104, 0.3) 0%, rgba(11, 25, 36, 0.8) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sister-card:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Moldura de Foto Redonda */
+        .sister-photo-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #d4af37 0%, rgba(212, 175, 55, 0.3) 100%);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sister-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            background-color: #153847;
+            color: transparent;
+        }
+
+        .sister-card h3 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-weight: 400;
+        }
+
+        .sister-tag {
+            font-size: 12px;
+            color: #d99a77;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .sister-bio {
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .pills-container {
+            text-align: left;
+            margin-top: auto;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 11px;
+            margin-right: 6px;
+            margin-bottom: 8px;
+        }
+
+        /* Banner Final */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(27, 82, 104, 0.5) 0%, rgba(212, 175, 55, 0.15) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            padding: 60px 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 38px;
+            color: #ffffff;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            font-size: 16px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+        }
+
+        footer {
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        /* Responsividade para Celulares */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            nav { display: none; }
+            header { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header com Logo e Navegação -->
+    <header>
+        <div class="header-brand">
+            <img src="images/logo.jpg" alt="" class="header-logo">
+            <div>
+                <div class="logo-title">Clínica <span>Furquim</span></div>
+                <div class="logo-sub">Psicologia de Alta Precisão</div>
+            </div>
+        </div>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#especialistas">Corpo Clínico</a>
+            <a href="#agendamento">Agendamento</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="badge">Acolhimento Humano & Atendimento Exclusivo</div>
+        <h1>A arte de escutar e a ciência de <em>transformar vidas.</em></h1>
+        <p class="hero-p">Fundada pelas irmãs Alice, Aline e Amanda Furquim. Um santuário de autoconhecimento, reestruturação emocional e saúde mental integrativa.</p>
+        <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" class="btn-gold">Iniciar Jornada Terapêutica</a>
+    </section>
+
+    <!-- Pilares de Atendimento -->
+    <section class="container" id="sobre">
+        <div class="section-header">
+            <div class="section-desc">Fundamentos do Nosso Atendimento</div>
+            <h2 class="section-title">A Excelência em Cada Detalhe</h2>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-number">01</div>
+                <h3>Sintonia Familiar</h3>
+                <p>A sinergia entre três irmãs psicólogas que compartilham os mesmos valores éticos, garantindo um ambiente de acolhimento genuíno e caloroso.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-number">02</div>
+                <h3>Visão Integrada</h3>
+                <p>Compreensão profunda das dimensões cognitivas, relacionais e psicanalíticas da mente humana para um plano clínico completo e personalizado.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-number">03</div>
+                <h3>Sigilo & Conforto</h3>
+                <p>Ambiente seguro e de altíssima privacidade, seja na modalidade presencial ou em sessões de alta definição online para qualquer lugar do mundo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- As Fundadoras / Corpo Clínico -->
+    <section class="container" id="especialistas" style="padding-top: 0;">
+        <div class="section-header">
+            <div class="section-desc">Corpo Clínico</div>
+            <h2 class="section-title">As Fundadoras</h2>
+        </div>
+
+        <div class="sisters-grid">
+            <!-- Alice Furquim -->
+            <div class="sister-card">
+                <div class="sister-photo-container">
+                    <img src="images/alice-furquim.jpg" alt="" class="sister-photo">
+                </div>
+                <h3>Alice Furquim</h3>
+                <div class="sister-tag">Terapia Cognitivo-Comportamental</div>
+                <p class="sister-bio">Focada na reestruturação cognitiva e no manejo científico da ansiedade. Transforma padrões de pensamento em clareza emocional e ação prática.</p>
+                <div class="pills-container">
+                    <span class="pill">Gestão de Ansiedade</span>
+                    <span class="pill">TCC Avançada</span>
+                    <span class="pill">Foco & Performance</span>
+                </div>
+            </div>
+
+            <!-- Aline Furquim -->
+            <div class="sister-card">
+                <div class="sister-photo-container">
+                    <img src="images/aline-furquim.jpg" alt="" class="sister-photo">
+                </div>
+                <h3>Aline Furquim</h3>
+                <div class="sister-tag">Casal & Dinâmicas Familiares</div>
+                <p class="sister-bio">Especialista no fortalecimento de vínculos, mediação de conflitos e restauração de canais afetivos de comunicação assertiva.</p>
+                <div class="pills-container">
+                    <span class="pill">Terapia de Casal</span>
+                    <span class="pill">Comunicação Assertiva</span>
+                    <span class="pill">Vínculos Afetivos</span>
+                </div>
+            </div>
+
+            <!-- Amanda Furquim -->
+            <div class="sister-card">
+                <div class="sister-photo-container">
+                    <img src="images/amanda-furquim.jpg" alt="" class="sister-photo">
+                </div>
+                <h3>Amanda Furquim</h3>
+                <div class="sister-tag">Psicanálise & Subjetividade</div>
+                <p class="sister-bio">Aprofundamento psicanalítico para a investigação do inconsciente, travessias de luto e ressignificação profunda de trajetórias de vida.</p>
+                <div class="pills-container">
+                    <span class="pill">Psicanálise Clínica</span>
+                    <span class="pill">Autoconhecimento</span>
+                    <span class="pill">Luto & Transição</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner Agendamento -->
+        <div class="cta-box" id="agendamento">
+            <h2>Pronto para priorizar o seu bem-estar?</h2>
+            <p>Agende uma sessão inicial de alinhamento e descubra qual abordagem clínica melhor se conecta com o seu momento atual.</p>
+            <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" class="btn-gold">Agendar Via WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>CLÍNICA FURQUIM PSICOLOGIA INTEGRADA • CRP REGIONAL ATIVO</p>
+        <p style="margin-top: 5px; opacity: 0.5;">ATENDIMENTO PRESENCIAL & ONLINE PREMIUM • © 2026</p>
+    </footer>
+
+</body>
+</html>
